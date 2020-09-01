@@ -28,7 +28,12 @@ install_script () {
 	echo "###################################################"
 	$sh_c 'pacman -S --noconfirm zip unzip unrar python-xlib nvim git rofi alacritty maim qtile arandr'
 	pamac build --no-confirm visual-studio-code-bin datagrip alacritty
-
+	
+	
+	cp /etc/xdg/autostart/{gnome-keyring-secrets.desktop,gnome-keyring-ssh.desktop} ~/.config/autostart/
+	sed -i '/^OnlyShowIn.*$/d' ~/.config/autostart/gnome-keyring-secrets.desktop
+	sed -i '/^OnlyShowIn.*$/d' ~/.config/autostart/gnome-keyring-ssh.desktop
+	git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
 
 	echo "###################################################"
 	echo "##########              ZSH              ##########"
