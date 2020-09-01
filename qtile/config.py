@@ -60,10 +60,12 @@ keys = [
     Key([mod], "r", lazy.spawn("rofi -show run"),  desc="run"),
 
     #Enable Audio Keys
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -q -D pulse sset Master 5%+")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q -D pulse sset Master 5%-")),
+    Key([], "XF86AudioMute", lazy.spawn("amixer set Master toggle")),
     Key([], "XF86AudioNext", lazy.spawn("mpc next")),
     Key([], "XF86AudioPrev", lazy.spawn("mpc prev")),
     Key([], "XF86AudioPlay", lazy.spawn("mpc toggle")),
-    Key([], "XF86AudioStop", lazy.spawn("mpc stop")),
 
     #Enable Screen capture 
     Key(["mod4"], "Print",          lazy.spawn("maim -u ~/Pictures/screenshot/screen_$(date +%Y-%m-%d-%T).png")),
@@ -97,12 +99,13 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown qtile"),
 ]
 
-group_names = [("DEV", {'layout': 'monadtall'}),
-               ("TERM", {'layout': 'monadtall'}),
-               ("CHAT", {'layout': 'monadtall'}),
-               ("WWW", {'layout': 'monadtall'}),
-               ("DB", {'layout': 'monadtall'}),
-            ]
+group_names = [
+    ("DEV", {'layout': 'max', 'matches': [Match(wm_class=["code", "vscode"])] }),
+    ("TERM", {'layout': 'tile', 'matches': [Match(wm_class=["Alacritty"])] }),
+    ("CHAT", {'layout': 'max', 'matches': [Match(wm_class=["Rambox"])] }),
+    ("WWW", {'layout': 'max', 'matches': [Match(wm_class=["Firefox"])] }),
+    ("DB", {'layout': 'max', 'matches': [Match(wm_class=["datagrip"])] }),
+]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
