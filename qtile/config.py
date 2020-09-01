@@ -68,8 +68,8 @@ keys = [
     Key([], "XF86AudioPlay", lazy.spawn("mpc toggle")),
 
     #Enable Screen capture 
-    Key(["mod4"], "Print",          lazy.spawn("maim -u ~/Pictures/screenshot/screen_$(date +%Y-%m-%d-%T).png")),
-    Key(["mod4", "shift"], "Print", lazy.spawn("maim -s ~/Pictures/screenshot/area_$(date +%Y-%m-%d-%T).png")),
+    Key(["mod4"], "Print",          lazy.spawn("maim -u ~/Pictures/screen_$(date +%Y-%m-%d-%T).png")),
+    Key(["mod4", "shift"], "Print", lazy.spawn("maim -s ~/Pictures/area_$(date +%Y-%m-%d-%T).png")),
 
 
     #Workspaces support
@@ -174,7 +174,6 @@ screens= [
     Screen(
         bottom=bar.Bar(
             [
-                widget.CurrentLayout(),
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
@@ -193,6 +192,7 @@ screens= [
                        padding = 5
                 ),
                 widget.Clock(format='%d/%m/%Y %I:%M %p'),
+                widget.CurrentLayout(),
                 widget.QuickExit(),
             ],
             24,
