@@ -26,7 +26,7 @@ install_script () {
 	echo "###################################################"
 	echo "##########          Dependencies         ##########"
 	echo "###################################################"
-	$sh_c 'pacman -S --noconfirm zip unzip unrar python-xlib nvim git rofi alacritty maim qtile arandr'
+	$sh_c 'pacman -S --noconfirm zip unzip unrar python-xlib nvim git rofi alacritty ponymix deepin-screenshot qtile arandr'
 	pamac build --no-confirm visual-studio-code-bin datagrip alacritty
 	
 	

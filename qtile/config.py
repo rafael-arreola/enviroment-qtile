@@ -1,4 +1,4 @@
-# PLEASE INSTALL python-xlib rofi alacritty maim ponymix deepin-screenshot
+# PLEASE INSTALL python-xlib rofi alacritty ponymix deepin-screenshot
 import os
 
 from libqtile import layout, hook
@@ -23,7 +23,11 @@ layouts = [
 ]
 
 
-widget_defaults = {'font': 'Sans', 'fontsize': 16, 'padding': 3}
+widget_defaults = {
+    'font': 'Sans', 
+    'fontsize': 16, 
+    'padding': 3
+}
 
 
 
