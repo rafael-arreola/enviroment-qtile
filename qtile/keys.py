@@ -30,7 +30,7 @@ def screenshot(save=True, copy=True):
 def cycle_workspaces(direction, move_window):
     def _inner(qtile):
         current = qtile.groups.index(qtile.current_group)
-        destination = (current + direction) % len(groups)
+        destination = (current + direction) % len(group_names)
         if move_window:
             qtile.current_window.togroup(qtile.groups[destination].name)
         qtile.groups[destination].cmd_toscreen()
