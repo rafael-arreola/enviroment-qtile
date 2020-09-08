@@ -13,11 +13,6 @@ main_bar = bar.Bar([
         visible_groups=["DEV","TERM", "CHAT"]
     ),
     widget.Sep(linewidth=2, size_percent=100, padding=12),
-    widget.Memory(
-        mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e htop')},
-        padding = 5
-    ),
-    widget.Sep(linewidth=2, size_percent=100, padding=12),
     widget.WindowName(),
     widget.Systray(),
     widget.Volume(
@@ -26,7 +21,12 @@ main_bar = bar.Bar([
     widget.Sep(**soft_sep),
     widget.Clock(format='%d/%m/%Y %I:%M %p'),
     widget.Sep(**soft_sep),
-    widget.QuickExit(),
+    widget.Sep(linewidth=2, size_percent=100, padding=12),
+    widget.Memory(
+        padding = 5
+    ),
+    widget.Sep(linewidth=2, size_percent=100, padding=12),
+    widget.CPUGraph()
 ], 30)
 
 
