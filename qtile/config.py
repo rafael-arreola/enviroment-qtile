@@ -53,10 +53,10 @@ floating_layout = layout.Floating(float_rules=[
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 
+wmname = 'LG3D'
+
 
 @hook.subscribe.startup_once
-def autostart():
+def startup_once():
     home = os.path.expanduser('~')
     subprocess.Popen([home + '/.config/qtile/autostart.sh'])
-
-wmname = 'LG3D'
